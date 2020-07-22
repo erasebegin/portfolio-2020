@@ -46,13 +46,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  transform: ${(props) => (props.open ? "initial" : "translateY(-65%)")};
+  transform: ${(props) => (props.open ? "initial" : "translateY(-85%)")};
   padding: 0;
   transition: ease-in-out 200ms;
 
   @media (min-width: 700px) {
     &:hover {
-      transform: ${(props) => (props.open ? "initial" : "translateY(-60%)")};
+      transform: ${(props) => (props.open ? "initial" : "translateY(-80%)")};
       transition: ease-in-out 150ms;
     }
   }
@@ -61,7 +61,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     background: #1e1f10;
-    height: 60vh;
+    height: 80vh;
     color: white;
     margin: 0;
 

@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import contentfulLogo from "../img/contentful.png";
-import reactLogo from "../img/react.svg";
-import gatsbyLogo from "../img/gatsby.png";
-import graphqlLogo from "../img/graphql.png";
-import netlifyLogo from "../img/netlify.png";
-import nodeLogo from "../img/node.png";
-import styledLogo from "../img/styled-components.png";
-import vueLogo from "../img/vue.png";
+import contentfulLogo from "../img/tech-logos/contentful.png";
+import reactLogo from "../img/tech-logos/react.svg";
+import gatsbyLogo from "../img/tech-logos/gatsby.png";
+import graphqlLogo from "../img/tech-logos/graphql.png";
+import netlifyLogo from "../img/tech-logos/netlify.png";
+import nodeLogo from "../img/tech-logos/node.png";
+import styledLogo from "../img/tech-logos/styled-components.png";
+import vueLogo from "../img/tech-logos/vue.png";
 
 export default function Tech() {
   return (

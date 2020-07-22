@@ -5,7 +5,7 @@ import Section from "./Section";
 import Cards from "./Cards";
 import "./reset.css";
 
-import otherworld from "./img/otherworld.png";
+import otherworld from "./img/screenshots/otherworld.png";
 
 function App() {
   return (
