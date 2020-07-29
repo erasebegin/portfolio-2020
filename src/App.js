@@ -143,7 +143,7 @@ function App() {
               title: "Lisna",
               image: lisna,
               text: "Promotional landing page for Lisna's music and samples",
-              url: "www.lisna.co.uk",
+              url: "https://www.lisna.co.uk",
             },
             {
               key: 3,

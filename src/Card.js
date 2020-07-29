@@ -11,13 +11,20 @@ export default function Card(props) {
         <h3>{props.title}</h3>
         <p>{props.text}</p>
         <div className="links-container">
-          <a href={props.url}>Visit</a>
+          <a
+            href={props.url}
+            className="link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit
+          </a>
           {props.repo ? (
             <a
               href={props.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="repo-link"
+              className="link"
             >
               Code
             </a>
@@ -64,9 +71,23 @@ const Container = styled.div`
     justify-content: space-evenly;
     width: 100%;
     margin: 0.5em 0;
+
+    .link {
+      text-decoration: none;
+      color: black;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 0.5em;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border-radius: 3px;
+
+      &:hover {
+        outline: 1px solid lightgray;
+      }
+    }
   }
 
-  @media(min-width: 700px){
+  @media (min-width: 700px) {
     max-width: 300px;
     min-height: 350px;
     margin: 0 0.5em;
