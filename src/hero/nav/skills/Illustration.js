@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import thinkdropsLink from "../img/go-to-thinkdrops-2.svg"
+import thinkdropsLink from "../../../img/go-to-thinkdrops-2.svg"
 
 export default function Portfolio() {
   return (
@@ -15,7 +15,9 @@ export default function Portfolio() {
 }
 
 const Container = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: .5em;
 
   h2 {
@@ -23,6 +25,7 @@ const Container = styled.div`
   }
 
   img {
-    width: 100%;
+    width: 90%;
+    margin: .75em auto;
   }
 `;
