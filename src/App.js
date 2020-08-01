@@ -196,5 +196,5 @@ export default App;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: "Balsamiq Sans", cursive;
+  font-family: 'Comic Neue', cursive;
 `;

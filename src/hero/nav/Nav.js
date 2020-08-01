@@ -15,10 +15,9 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(["", false]);
   const [envOpen, setEnvOpen] = useState(false);
 
-  const setOpen = (title) => {
-    const openState = isOpen[1];
-    setIsOpen([title, !openState]);
-    console.log(isOpen);
+  const setOpen = ([title, state]) => {
+    let newState = !state;
+    setIsOpen([title, newState]);
   };
 
   const envelopeOpen = () => {
@@ -76,7 +75,10 @@ export default function Nav() {
       <ButtonContainer>
         <TrayButton
           image={trayIconSkills}
+          //receiving from child
           setOpen={setOpen}
+          //passing to child
+          isOpen={isOpen}
           title="skills"
           panelHeight="85vh"
           panelHeightMobile="90vh"
@@ -84,6 +86,7 @@ export default function Nav() {
         <TrayButton
           image={trayIconContact}
           setOpen={setOpen}
+          isOpen={isOpen}
           title="contact"
           offset={"true"}
           panelHeight="20vh"
@@ -94,22 +97,22 @@ export default function Nav() {
 }
 
 const ButtonContainer = styled.div`
-       position: fixed;
-        display: flex;
-        width: 100%;
+  position: fixed;
+  display: flex;
+  width: 100%;
 
-        &:nth-child(1) {
-            margin-left: -30px;
-        }
-`
+  &:nth-child(1) {
+    margin-left: -30px;
+  }
+`;
 
 const ContactContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 
-    a {
-        margin: .5em;
-    }
-`
+  a {
+    margin: 0.5em;
+  }
+`;

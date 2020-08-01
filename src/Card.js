@@ -73,6 +73,7 @@ const Container = styled.div`
     margin: 0.5em 0;
 
     .link {
+      font-size: 1.2rem;
       text-decoration: none;
       color: black;
       background: rgba(255, 255, 255, 0.75);
@@ -82,7 +83,8 @@ const Container = styled.div`
       border-radius: 3px;
 
       &:hover {
-        outline: 1px solid lightgray;
+        transform: translate(2px, 1px);
+        font-weight: bold;
       }
     }
   }

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export default function SkillsPane(props) {
+
   return (
     <Container open={props.setOpen} color={props.color} height={props.height} padding={props.padding}>
       <div className="main">{props.children}</div>

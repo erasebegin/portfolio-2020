@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <Container>
       <Nav />
-      <div className="inner-container">
+      <div className="inner-container" id="panel-main">
         <img
           src={logo}
           className="logo"
@@ -26,25 +26,36 @@ const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  background: #ffffe1;
+  background-image: url(https://i.ibb.co/PwFSPmC/mandala-color1.png);
+  background-color: var(--dark1);
+  background-blend-mode: screen;
+  background-position: center;
+  background-size: 150%;
+  background-attachment: fixed;
+  object-fit: fill;
 
   @media(min-width: 400px) {
     justify-content: flex-start;
   }
 
   .inner-container {
-    width: 100%;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
+    background: rgba(255,255,255,0.5);
   }
 
   .heading-container {
-    margin: 0 auto 2em;
-    max-height: 400px;
     display: flex;
     flex-direction: column;
+    align-self: center;
+    max-width: 400px;
+    padding: 2em;
+    background: #feffbd;
     color: #14140b;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
   }
 
   .contact-link-container {
@@ -96,13 +107,16 @@ const Container = styled.div`
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 5rem;
+    font-weight: 300;
+    letter-spacing: .1em;
     text-align: center;
     margin: auto;
   }
 
   h2 {
     font-size: 3rem;
+    letter-spacing: .01em;
     text-align: center;
     margin: auto;
   }
@@ -110,5 +124,9 @@ const Container = styled.div`
   .logo {
     margin: 4.5em auto 1em;
     max-height: 200px;
+
+    @media(min-width: 400px) {
+    max-height: 400px;
+    }
   }
 `;

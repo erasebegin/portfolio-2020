@@ -11,23 +11,27 @@ export default function Section(props) {
 }
 
 const Container = styled.div`
-    padding: 2em 1em;
+    padding: 2em 2.5em;
     background: ${props => props.color};
+    color: #1e1f10;
 
     h1 {
         font-size: 3rem;
         text-align: center;
+        color: #565c00;
+        line-height: 1.1em;
     }
 
     p {
         font-size: 1.3rem;
+        line-height: 1.2em;
+    }
+
+    &:last-child{
+        padding-bottom: 10em;
     }
 
     @media(min-width: 700px) {
-        /* display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center; */
         padding: 2em 20vw;
     }
 `

@@ -5,7 +5,7 @@ export default function TrayIcon(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const sendOpen = (title) => {
-    props.setOpen(title);
+    props.setOpen([title, isOpen]);
     setIsOpen(!isOpen);
   };
   

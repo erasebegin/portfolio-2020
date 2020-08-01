@@ -79,11 +79,20 @@ const Container = styled.div`
 
       .logo-container {
         text-align: center;
-        width: 90px;
+        padding: .3em;
+    
+
+        @media(min-width: 400px) {
+          padding: 1em;
+        }
 
         .tech-logo {
-          max-height: 50px;
+          max-height: 30px;
           margin: 0.5em 0.75em;
+
+            @media(min-width: 400px) {
+              max-height: 50px;
+            }
         }
       }
     }
