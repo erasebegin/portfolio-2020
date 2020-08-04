@@ -66,7 +66,7 @@ const Container = styled.div`
     flex-direction: column;
     margin: 1em 0;
 
-    @media(min-width: 400px) {
+    @media(min-width: 600px) {
           padding: 0 4em;
     }
 
