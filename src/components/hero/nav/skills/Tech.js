@@ -65,7 +65,10 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin: 1em 0;
-    padding: 0 4em;
+
+    @media(min-width: 400px) {
+          padding: 0 4em;
+    }
 
     .tech {
       display: flex;
@@ -92,7 +95,7 @@ const Container = styled.div`
         .tech-logo {
           max-height: 45px;
 
-            @media(min-width: 700px) {
+            @media(min-width: 500px) {
               max-height: 50px;
               margin: 0.5em 0.75em;
             }
