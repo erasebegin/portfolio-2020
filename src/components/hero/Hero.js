@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Nav from "./nav/Nav";
-import logo from "../img/logo.png";
+import logo from "../../img/logo.png";
 
 export default function Hero() {
   return (
@@ -27,7 +27,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   background-image: url(https://i.ibb.co/PwFSPmC/mandala-color1.png);
-  background-color: var(--dark1);
+  background-color: #FFFFE1EE;
   background-blend-mode: screen;
   background-position: center;
   background-size: 150%;
@@ -43,7 +43,6 @@ const Container = styled.div`
     width: 100%;
     flex-direction: column;
     justify-content: space-between;
-    background: rgba(255,255,255,0.5);
   }
 
   .heading-container {
@@ -112,6 +111,17 @@ const Container = styled.div`
     letter-spacing: .1em;
     text-align: center;
     margin: auto;
+
+    &::after {
+      content: "";
+      display: block;
+      background: #fdff70;
+      height: 60px;
+      width: 100%;
+      margin-top: -55px;
+      margin-left: 5px;
+      box-shadow: 10px 5px 0 #FEFFBD, 13px 10px 0 #1E1F12;
+    }
   }
 
   h2 {

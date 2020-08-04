@@ -5,8 +5,8 @@ import TrayButton from "./TrayButton";
 import Tech from "./skills/Tech";
 import Illustration from "./skills/Illustration";
 import Misc from "./skills/Misc";
-import trayIconSkills from "../../img/tray-icon-fixed.svg";
-import trayIconContact from "../../img/tray-icon3.svg";
+import trayIconSkills from "../../../img/tray-icon-fixed.svg";
+import trayIconContact from "../../../img/tray-icon3.svg";
 import { BsFillEnvelopeFill, BsFillEnvelopeOpenFill } from "react-icons/bs";
 import { FaGithubAlt } from "react-icons/fa";
 import { AiFillLinkedin } from "react-icons/ai";
@@ -14,6 +14,26 @@ import { AiFillLinkedin } from "react-icons/ai";
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(["", false]);
   const [envOpen, setEnvOpen] = useState(false);
+  const [scrollState, setScrollState] = useState("show");
+
+
+  // HIDE NAVBUTTONS ON DOWN SCROLL, REVEAL ON UP SCROLL
+
+  var lastScrollTop = window.pageYOffset || window.scrollTop;
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      var st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st < lastScrollTop) {
+        setScrollState("show");
+      } else if (st > lastScrollTop) {
+        setScrollState("hide");
+      }
+      lastScrollTop = st <= 0 ? 0 : st;
+    },
+    false
+  );
 
   const setOpen = ([title, state]) => {
     let newState = !state;
@@ -72,7 +92,7 @@ export default function Nav() {
           </a>
         </ContactContainer>
       </Panel>
-      <ButtonContainer>
+      <ButtonContainer state={scrollState}>
         <TrayButton
           image={trayIconSkills}
           //receiving from child
@@ -99,7 +119,10 @@ export default function Nav() {
 const ButtonContainer = styled.div`
   position: fixed;
   display: flex;
+  transform: ${({ state }) =>
+    state === "hide" ? "translateY(-100px)" : "initial"};
   width: 100%;
+  transition: 200ms;
 
   &:nth-child(1) {
     margin-left: -30px;
@@ -112,7 +135,11 @@ const ContactContainer = styled.div`
   justify-content: center;
   height: 100%;
 
-  a {
+  .contact-link {
     margin: 0.5em;
+
+    &:hover {
+      background: initial;
+    }
   }
 `;

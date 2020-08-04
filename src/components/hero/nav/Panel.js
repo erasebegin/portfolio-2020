@@ -47,9 +47,14 @@ const Container = styled.div`
     pointer-events: auto;
     height: ${(props)=>(props.height ? props.height : "100%")};
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    overflow: scroll;
+    
 
     h2 {
       font-size: 1.6rem;
+      @media(min-width: 500px) {
+          font-size: 2rem;
+        }
     }
 
     @media(min-width: 800px) {
