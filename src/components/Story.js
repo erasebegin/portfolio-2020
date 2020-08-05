@@ -97,7 +97,7 @@ export default function Story() {
           illustrator.
         </p>
       </Section>
-      <Section title={"Problem Solver"} color={"#FEFFBD"}>
+      <Section title={"Problem Solver"} color={"#FFFFE1"}>
         <p className="section-main-p">
           One of the most wonderful aspects (and perhaps the fundamental aspect)
           of programming is being able to create tools to solve problems. I was
@@ -177,7 +177,7 @@ export default function Story() {
           useful in real classrooms that have a blackboard too!
         </p>
       </Section>
-      <Section title={"Playful"} color={"#FFFFE1"}>
+      <Section title={"Playful"} color={"#FEFFBD"}>
         <p className="section-main-p">
           Even from my earliest projects I liked to keep things light-hearted
           and make things that are as fun to experience as they are to build.
