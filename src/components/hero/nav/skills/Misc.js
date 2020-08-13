@@ -25,9 +25,16 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
+  @media(min-width: 600px){
+    padding: 0 1em;
+    padding-top: 2em;
+    width: 100%;
+  }
+
   ul {
     font-size: 1.5rem;
     list-style: circle;
+    line-height: 1.5em;
 
     @media (min-width: 600px) {
       font-size: 1.6rem;

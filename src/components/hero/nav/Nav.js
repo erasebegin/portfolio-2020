@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Panel from "./Panel";
 import TrayButton from "./TrayButton";
@@ -13,31 +13,31 @@ import { AiFillLinkedin } from "react-icons/ai";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(["", false]);
+  const [panelHeight, setPanelHeight] = useState({ skills: 0, contact: 0 });
   const [envOpen, setEnvOpen] = useState(false);
   const [scrollState, setScrollState] = useState("show");
-
 
   // HIDE NAVBUTTONS ON DOWN SCROLL, REVEAL ON UP SCROLL
 
   var lastScrollTop = window.pageYOffset || window.scrollTop;
 
-  window.addEventListener(
-    "scroll",
-    function () {
-      var st = window.pageYOffset || document.documentElement.scrollTop;
-      if (st < lastScrollTop) {
-        setScrollState("show");
-      } else if (st > lastScrollTop) {
-        setScrollState("hide");
-      }
-      lastScrollTop = st <= 0 ? 0 : st;
-    },
-    false
-  );
+  function scrollDetect() {
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st < lastScrollTop) {
+      setScrollState("show");
+    } else if (st > lastScrollTop) {
+      setScrollState("hide");
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+  }
 
   const setOpen = ([title, state]) => {
     let newState = !state;
     setIsOpen([title, newState]);
+  };
+
+  const setHeight = (title, height) => {
+    setPanelHeight((prevState) => ({ ...prevState, [title]: height }));
   };
 
   const envelopeOpen = () => {
@@ -48,22 +48,37 @@ export default function Nav() {
     setEnvOpen(false);
   };
 
+  useEffect(() => {
+    if (!isOpen[1]) {
+      document.addEventListener("scroll", scrollDetect);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isOpen[1]) {
+      document.removeEventListener("scroll", scrollDetect);
+    }
+  }, [isOpen]);
+
   return (
     <>
       <Panel
-        setOpen={isOpen[0] === "skills" ? isOpen[1] : false}
+        setOpen={isOpen[0] === "skills-button" ? isOpen[1] : false}
         color="#1e1f10"
-        height="85vh"
-        padding="2"
+        title="skills"
+        getHeight={setHeight}
       >
         <Tech />
-        <Illustration />
-        <Misc />
+        <PanelBottom>
+          <Illustration />
+          <Misc />
+        </PanelBottom>
       </Panel>
       <Panel
-        setOpen={isOpen[0] === "contact" ? isOpen[1] : false}
+        setOpen={isOpen[0] === "contact-button" ? isOpen[1] : false}
         color="#c4d009"
-        height="20vh"
+        title="contact"
+        getHeight={setHeight}
       >
         <ContactContainer>
           <a
@@ -99,17 +114,16 @@ export default function Nav() {
           setOpen={setOpen}
           //passing to child
           isOpen={isOpen}
-          title="skills"
-          panelHeight="85vh"
-          panelHeightMobile="90vh"
+          title="skills-button"
+          panelHeight={panelHeight.skills}
         />
         <TrayButton
           image={trayIconContact}
           setOpen={setOpen}
           isOpen={isOpen}
-          title="contact"
+          title="contact-button"
           offset={"true"}
-          panelHeight="20vh"
+          panelHeight={panelHeight.contact}
         />
       </ButtonContainer>
     </>
@@ -141,5 +155,16 @@ const ContactContainer = styled.div`
     &:hover {
       background: initial;
     }
+  }
+`;
+
+const PanelBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
   }
 `;

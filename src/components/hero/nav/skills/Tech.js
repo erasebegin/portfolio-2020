@@ -3,12 +3,14 @@ import styled from "styled-components";
 
 import contentfulLogo from "../../../../img/tech-logos/contentful.png";
 import reactLogo from "../../../../img/tech-logos/react.svg";
+import rnLogo from "../../../../img/tech-logos/react-native.svg";
 import gatsbyLogo from "../../../../img/tech-logos/gatsby.png";
 import graphqlLogo from "../../../../img/tech-logos/graphql.png";
 import netlifyLogo from "../../../../img/tech-logos/netlify.png";
 import nodeLogo from "../../../../img/tech-logos/node.png";
-import styledLogo from "../../../../img/tech-logos/styled-components.png";
 import vueLogo from "../../../../img/tech-logos/vue.png";
+import vuetifyLogo from "../../../../img/tech-logos/vuetify-logo.png";
+import mongodbLogo from "../../../../img/tech-logos/mongodb-logo.png";
 
 export default function Tech() {
   return (
@@ -28,6 +30,10 @@ export default function Tech() {
           <p className="logo-label">react</p>
         </div>
         <div className="logo-container">
+          <img className="tech-logo" src={rnLogo} alt="react native logo" />
+          <p className="logo-label">react native</p>
+        </div>
+        <div className="logo-container">
           <img className="tech-logo" src={gatsbyLogo} alt="gatsby logo" />
           <p className="logo-label">gatsby</p>
         </div>
@@ -44,19 +50,18 @@ export default function Tech() {
           <p className="logo-label">node.js</p>
         </div>
         <div className="logo-container">
-          <img
-            className="tech-logo"
-            src={styledLogo}
-            alt="styled components logo"
-          />
-          <p className="logo-label">styled components</p>
-        </div>
-        <div className="logo-container">
           <img className="tech-logo" src={vueLogo} alt="vue logo" />
           <p className="logo-label">vue</p>
         </div>
+        <div className="logo-container">
+          <img className="tech-logo" src={vuetifyLogo} alt="vuetify logo" />
+          <p className="logo-label">vuetify</p>
+        </div>
+        <div className="logo-container">
+          <img className="tech-logo" src={mongodbLogo} alt="mongodb logo" />
+          <p className="logo-label">mongodb</p>
+        </div>
       </div>
-      <div className="illustration"></div>
     </Container>
   );
 }
@@ -64,32 +69,31 @@ export default function Tech() {
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 1em 0;
+    margin-top: 1em;
 
     @media(min-width: 600px) {
-          padding: 0 4em;
+          border-bottom: 1px solid white;
     }
 
     .tech {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      justify-items: center;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr 1fr;
+      width: 90%;
       margin: auto;
 
       .logo-container {
-       
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         text-align: center;
         margin: 1em .5em;
-        max-width: 70px;
-    
+        max-width: 50px;
 
         @media(min-width: 400px) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
           margin: 1em;
+          max-width: 90px;
         }
 
         .tech-logo {

@@ -1,10 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
-export default function SkillsPane(props) {
+export default function Panel(props) {
 
+  const [panelHeight,setPanelHeight] = useState(0);
+
+  const passHeight = (title, height) => {
+    props.getHeight(title,height)
+  }
+
+  useEffect(()=>{
+    const height = document.getElementById(props.title).clientHeight;
+    setPanelHeight(height)
+  },[])
+
+  useEffect(()=>{
+    passHeight(props.title,panelHeight)
+  },[panelHeight])
+  
   return (
-    <Container open={props.setOpen} color={props.color} height={props.height} padding={props.padding}>
+    <Container id={props.title} open={props.setOpen} color={props.color} height={props.height} padding={props.padding}>
       <div className="main">{props.children}</div>
       <div className="icon-container"></div>
     </Container>
@@ -43,11 +58,14 @@ const Container = styled.div`
     background: ${(props) => (props.color ? props.color : "white")};
     color: white;
     margin: 0;
-    padding: ${(props)=>(props.padding ? "0 "+props.padding+"em" : "0")};
     pointer-events: auto;
-    height: ${(props)=>(props.height ? props.height : "100%")};
+    height: 100%;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     overflow: scroll;
+
+    @media(min-width: 400px) {
+          overflow: hidden;
+        }
     
 
     h2 {
@@ -55,12 +73,6 @@ const Container = styled.div`
       @media(min-width: 500px) {
           font-size: 2rem;
         }
-    }
-
-    @media(min-width: 800px) {
-      padding: ${(props)=>(props.padding ? "0 "+props.padding/4+"em" : "0")}; 
-      border-bottom-right-radius: 20px;
-      border-bottom-left-radius: 20px;
     }
   }
 `;

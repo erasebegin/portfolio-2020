@@ -8,7 +8,7 @@ export default function Footer() {
     <Container>
       <div className="inner-container">
         <p>Created using React</p>
-        <img src={reactLogo} alt="react logo" class="logo" />
+        <img src={reactLogo} alt="react logo" className="logo" />
         <p>
           Check out the source over on{" "}
           <a
@@ -23,9 +23,9 @@ export default function Footer() {
           href="https://github.com/erasebegin/portfolio-2020"
           target="_blank"
           rel="noopener noreferrer"
-          class="no-hover-effect"
+          className="no-hover-effect"
         >
-          <img src={githubLogo} alt="github logo" class="logo" />
+          <img src={githubLogo} alt="github logo" className="logo" />
         </a>
       </div>
     </Container>

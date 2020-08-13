@@ -18,7 +18,15 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: .5em;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding-top: 2em;
+
+  @media(min-width: 800px) {
+          border-right: 1px solid white;
+    }
+
 
   img {
     width: 250px;
@@ -33,7 +41,6 @@ const Container = styled.div`
   .illustration-link {
     @media(min-width: 500px) {
           margin: 1em 0;
-          
     }
 
   }
