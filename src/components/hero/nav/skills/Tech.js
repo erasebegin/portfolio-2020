@@ -72,7 +72,7 @@ const Container = styled.div`
     margin-top: 1em;
 
     @media(min-width: 600px) {
-          border-bottom: 1px solid white;
+          border-bottom: 1px solid #353624;
     }
 
     .tech {

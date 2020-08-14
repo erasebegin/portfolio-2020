@@ -2,24 +2,28 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 export default function TrayIcon(props) {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(null);
   const [ownHeight, setOwnHeight] = useState(0);
 
   const sendOpen = (title) => {
-    props.setOpen([title, isOpen]);
-    setIsOpen(!isOpen);
+    props.setOpen([title, !props.isOpen]);
+    // console.log("sendOpen is at: ", isOpen)
   };
+
+  // useEffect(()=>{
+  //   setIsOpen(props.isOpen)
+  //   console.log("useEffect is at: ",props.isOpen,"(props)",isOpen,("state"))
+  // },[props.isOpen, isOpen])
 
   useEffect(()=>{
     const height = document.getElementById(props.title).clientHeight;
     setOwnHeight(height)
-    console.log("ownHeight",ownHeight)
   },[])
 
   return (
     <Container
       onClick={() => sendOpen(props.title)}
-      open={isOpen}
+      open={props.isOpen}
       height={props.panelHeight}
       offset={props.offset}
       ownHeight={ownHeight}

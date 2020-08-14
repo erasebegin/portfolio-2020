@@ -24,7 +24,7 @@ const Container = styled.div`
   padding-top: 2em;
 
   @media(min-width: 800px) {
-          border-right: 1px solid white;
+          border-right: 1px solid #353624;
     }
 
 

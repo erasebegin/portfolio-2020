@@ -19,9 +19,9 @@ export default function Nav() {
 
   // HIDE NAVBUTTONS ON DOWN SCROLL, REVEAL ON UP SCROLL
 
-  var lastScrollTop = window.pageYOffset || window.scrollTop;
-
   function scrollDetect() {
+    var lastScrollTop = window.pageYOffset || window.scrollTop;
+
     var st = window.pageYOffset || document.documentElement.scrollTop;
     if (st < lastScrollTop) {
       setScrollState("show");
@@ -32,8 +32,9 @@ export default function Nav() {
   }
 
   const setOpen = ([title, state]) => {
-    let newState = !state;
-    setIsOpen([title, newState]);
+    // let newState = !state;
+    setIsOpen([title, state]);
+    console.log("nav-receives: ",state)
   };
 
   const setHeight = (title, height) => {
@@ -48,17 +49,21 @@ export default function Nav() {
     setEnvOpen(false);
   };
 
+  const clickOff = (title, state) => {
+    setIsOpen(title, state);
+  };
+
   useEffect(() => {
     if (!isOpen[1]) {
       document.addEventListener("scroll", scrollDetect);
     }
-  }, []);
+  }, [isOpen[1]]);
 
   useEffect(() => {
     if (isOpen[1]) {
       document.removeEventListener("scroll", scrollDetect);
     }
-  }, [isOpen]);
+  });
 
   return (
     <>
@@ -67,6 +72,7 @@ export default function Nav() {
         color="#1e1f10"
         title="skills"
         getHeight={setHeight}
+        clickOff={clickOff}
       >
         <Tech />
         <PanelBottom>
@@ -79,6 +85,7 @@ export default function Nav() {
         color="#c4d009"
         title="contact"
         getHeight={setHeight}
+        clickOff={clickOff}
       >
         <ContactContainer>
           <a
@@ -113,14 +120,14 @@ export default function Nav() {
           //receiving from child
           setOpen={setOpen}
           //passing to child
-          isOpen={isOpen}
+          isOpen={isOpen[0] === "skills-button" ? isOpen[1] : false}
           title="skills-button"
           panelHeight={panelHeight.skills}
         />
         <TrayButton
           image={trayIconContact}
           setOpen={setOpen}
-          isOpen={isOpen}
+          isOpen={isOpen[0] === "contact-button" ? isOpen[1] : false}
           title="contact-button"
           offset={"true"}
           panelHeight={panelHeight.contact}
