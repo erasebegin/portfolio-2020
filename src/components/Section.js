@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 export default function Section(props) {
+  const [componentId, setComponentId] = useState("");
+
+  const convertToCamelCase = () => {
+    const str = props.title
+      .toLowerCase()
+      .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+    setComponentId(str);
+  };
+
+  useEffect(() => {
+    convertToCamelCase();
+  }, []);
+
   return (
     <Container color={props.color} className="section">
-      <h1>{props.title}</h1>
+      <h1 id={componentId}>{props.title}</h1>
       {props.children}
     </Container>
   );
@@ -33,7 +46,7 @@ const Container = styled.div`
       width: 100%;
       margin-top: -30px;
       margin-left: 10px;
-      box-shadow: 10px 5px 0 #FEFFBD, 13px 10px 0 #1E1F12;
+      box-shadow: 10px 5px 0 #feffbd, 13px 10px 0 #1e1f12;
     }
   }
 

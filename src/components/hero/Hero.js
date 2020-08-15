@@ -8,11 +8,29 @@ export default function Hero() {
     <Container>
       <Nav />
       <div className="inner-container" id="panel-main">
-        <img
-          src={logo}
-          className="logo"
-          alt="illustration of my head with a lightbulb above it"
-        />
+        <div className="menu-wrapper">
+          <div className="menu-left">
+            <a href="#playful" className="a1">
+              Playful
+            </a>
+            <a href="#problemSolver" className="a2">
+              Problem Solver
+            </a>
+          </div>
+          <img
+            src={logo}
+            className="logo"
+            alt="illustration of my head with a lightbulb above it"
+          />
+          <div className="menu-right">
+            <a href="#ambitious" className="a3">
+              Ambitious
+            </a>
+            <a href="#flexible" className="a4">
+              Flexible
+            </a>
+          </div>
+        </div>
         <div className="heading-container">
           <h2>Chris Haupt's</h2>
           <h1>Story</h1>
@@ -43,6 +61,69 @@ const Container = styled.div`
     width: 100%;
     flex-direction: column;
     justify-content: space-between;
+
+    .menu-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+
+      .logo {
+        margin: 4.5em -4em 1em;
+        max-height: 200px;
+
+          @media(min-width: 400px) {
+          margin: 4.5em -6em 1em;
+          max-height: 400px;
+          }
+        }
+
+      .menu-left, .menu-right {
+        display: flex;
+        gap: 2em;
+        flex-direction: column;
+
+        @media(min-width: 400px) {
+            gap: 3em;
+          }
+      }
+
+      .a1, .a2, .a3, .a4 {
+        display: none;
+        text-decoration: none;
+          color: #fdff70;
+          border-radius: 5px;
+          padding: .5em;
+          font-size: 1.4rem;
+          font-weight: 700;
+          text-shadow: 0px 0px 3px #1e1f10;
+          max-width: 100px;
+          z-index: 0;
+
+          @media(min-width: 500px) {
+            display: initial;
+            font-size: 1.6rem;
+          }
+
+          &:hover {
+            background: #1e1f10;
+          }
+      }
+
+      .menu-left .a1, .menu-right .a4{
+          transform: rotate(30deg);
+          &:hover{
+            transform: rotate(20deg) scale(1.2);
+          }
+      }
+
+      .menu-left .a2, .menu-right .a3{
+        transform: rotate(-30deg);
+        &:hover{
+            transform: rotate(-20deg) scale(1.2);
+          }
+      }
+    }
   }
 
   .heading-container {
@@ -129,14 +210,5 @@ const Container = styled.div`
     letter-spacing: .01em;
     text-align: center;
     margin: auto;
-  }
-
-  .logo {
-    margin: 4.5em auto 1em;
-    max-height: 200px;
-
-    @media(min-width: 400px) {
-    max-height: 400px;
-    }
   }
 `;

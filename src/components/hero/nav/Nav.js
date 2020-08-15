@@ -144,6 +144,7 @@ const ButtonContainer = styled.div`
     state === "hide" ? "translateY(-100px)" : "initial"};
   width: 100%;
   transition: 200ms;
+  z-index: 1000;
 
   &:nth-child(1) {
     margin-left: -30px;
