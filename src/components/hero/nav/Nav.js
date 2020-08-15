@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Panel from "./Panel";
 import TrayButton from "./TrayButton";
@@ -15,21 +15,21 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(["", false]);
   const [panelHeight, setPanelHeight] = useState({ skills: 0, contact: 0 });
   const [envOpen, setEnvOpen] = useState(false);
-  const [scrollState, setScrollState] = useState("show");
+  // const [scrollState, setScrollState] = useState("show");
 
   // HIDE NAVBUTTONS ON DOWN SCROLL, REVEAL ON UP SCROLL
 
-  function scrollDetect() {
-    var lastScrollTop = window.pageYOffset || window.scrollTop;
+  // function scrollDetect() {
+  //   var lastScrollTop = window.pageYOffset || window.scrollTop;
 
-    var st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st < lastScrollTop) {
-      setScrollState("show");
-    } else if (st > lastScrollTop) {
-      setScrollState("hide");
-    }
-    lastScrollTop = st <= 0 ? 0 : st;
-  }
+  //   var st = window.pageYOffset || document.documentElement.scrollTop;
+  //   if (st < lastScrollTop) {
+  //     setScrollState("show");
+  //   } else if (st > lastScrollTop) {
+  //     setScrollState("hide");
+  //   }
+  //   lastScrollTop = st <= 0 ? 0 : st;
+  // }
 
   const setOpen = ([title, state]) => {
     // let newState = !state;
@@ -53,17 +53,17 @@ export default function Nav() {
     setIsOpen(title, state);
   };
 
-  useEffect(() => {
-    if (!isOpen[1]) {
-      document.addEventListener("scroll", scrollDetect);
-    }
-  }, [isOpen[1]]);
+  // useEffect(() => {
+  //   if (!isOpen[1]) {
+  //     document.addEventListener("scroll", scrollDetect);
+  //   }
+  // }, [isOpen[1]]);
 
-  useEffect(() => {
-    if (isOpen[1]) {
-      document.removeEventListener("scroll", scrollDetect);
-    }
-  });
+  // useEffect(() => {
+  //   if (isOpen[1]) {
+  //     document.removeEventListener("scroll", scrollDetect);
+  //   }
+  // });
 
   return (
     <>
@@ -114,7 +114,7 @@ export default function Nav() {
           </a>
         </ContactContainer>
       </Panel>
-      <ButtonContainer state={scrollState}>
+      <ButtonContainer>
         <TrayButton
           image={trayIconSkills}
           //receiving from child

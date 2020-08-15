@@ -31,6 +31,6 @@ const Container = styled.div`
   @media (min-width: 700px) {
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
   }
 `;

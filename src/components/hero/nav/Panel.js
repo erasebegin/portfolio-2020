@@ -33,22 +33,19 @@ export default function Panel(props) {
 
   //***********************PANEL HEIGHT****************************
 
-  // PASS HEIGHT TO PARENT, CALLED BY USEEFFECT
-
-  const passHeight = (title, height) => {
-    props.getHeight(title, height);
-  };
-
   // SET HEIGHT OF CONTAINER
 
   useEffect(() => {
     const height = document.getElementById(props.title).clientHeight;
     setPanelHeight(height);
-  }, [props.setOpen]);
+  }, []);
 
   // ONCE HEIGHT IS SET, PASS TO PARENT
 
   useEffect(() => {
+    const passHeight = (title, height) => {
+      props.getHeight(title, height);
+    };
     passHeight(props.title, panelHeight);
   }, [panelHeight]);
 
@@ -95,7 +92,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     background: ${(props) => (props.color ? props.color : "white")};
-    color: #F2F2DA;
+    color: #f2f2da;
     margin: 0;
     pointer-events: auto;
     height: 100%;

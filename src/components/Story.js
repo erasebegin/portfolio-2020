@@ -1,9 +1,9 @@
-import React from 'react'
-import Section from './Section'
-import Cards from './Cards'
+import React from "react";
+import Section from "./Section";
+import Cards from "./Cards";
 
 import otherworld from "../img/screenshots/otherworld.png";
-import jsjournal from "../img/screenshots/jsjournal.png";
+import weather from "../img/screenshots/weather.png";
 import commentgen from "../img/screenshots/comment.png";
 import scrabble from "../img/screenshots/scrabble.png";
 import necessary from "../img/screenshots/necessary.png";
@@ -12,9 +12,9 @@ import lisna from "../img/screenshots/lisna.png";
 import crux from "../img/screenshots/crux.png";
 
 export default function Story() {
-    return (
-        <>
-                <Section title={"Ambitious"} color={"#FEFFBD"}>
+  return (
+    <>
+      <Section title={"Ambitious"} color={"#FEFFBD"}>
         <p className="section-main-p">
           I have undertaken large projects that have pushed me to the very
           limits of my understanding of programming languages as well as
@@ -102,50 +102,12 @@ export default function Story() {
           One of the most wonderful aspects (and perhaps the fundamental aspect)
           of programming is being able to create tools to solve problems. I was
           delighted when I reached a level of proficiency where I could go from
-          having an idea to making it a reality. At first I was only able to use
-          Jekyll to use and edit templates which gave me certain capabilities.
-          It allowed me to{" "}
-          <a
-            href="https://erasebegin.github.io/js-journal"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            create a journal
-          </a>{" "}
-          of my first foray into javascript.
+          having an idea to making it a reality.
         </p>
-        <Cards
-          data={[
-            {
-              key: 1,
-              title: "JS Journal",
-              image: jsjournal,
-              text: "My first foray in to web development 2020",
-              url: "https://erasebegin.github.io/js-journal",
-            },
-            {
-              key: 2,
-              title: "Comment Genertator",
-              image: commentgen,
-              text: "A terrific time saving tool",
-              url: "https://comment-generator-915.netlify.app",
-              repo: "https://gitlab.com/erasebegin/comment-generator",
-            },
-            {
-              key: 3,
-              title: "Scrabble Letters",
-              image: scrabble,
-              text: "A simple yet game-changing teaching tool",
-              url: "https://scrabble-letters.netlify.app",
-            },
-          ]}
-        />
         <p className="section-main-p">
-          From vanilla javascript I moved in to React and before long I was able
-          to start turning brainwaves into reality. Having spent so much time
-          during the lockdown teaching online, I was forced to write ten student
-          progress reports every day— an unreasonable expectation given how
-          little a student's ability changes in 24 hours.{" "}
+          Having spent so much time teaching online, I was forced to write ten
+          student progress reports every day— an unreasonable expectation given
+          how little a student's ability changes in 24 hours.{" "}
           <a
             href="https://gitlab.com/erasebegin/comment-generator"
             target="_blank"
@@ -156,6 +118,33 @@ export default function Story() {
           to spit out generic comments based on key words. My writing time was
           reduced by 90%! This is a tool that I still use every day.
         </p>
+        <Cards
+          data={[
+            {
+              key: 1,
+              title: "Comment Genertator",
+              image: commentgen,
+              text: "A terrific time saving tool",
+              url: "https://comment-generator-915.netlify.app",
+              repo: "https://gitlab.com/erasebegin/comment-generator",
+            },
+            {
+              key: 2,
+              title: "Scrabble Letters",
+              image: scrabble,
+              text: "A simple yet game-changing teaching tool",
+              url: "https://scrabble-letters.netlify.app",
+            },
+            {
+              key: 3,
+              title: "Quick Weather",
+              image: weather,
+              text:
+                "Built using Node, Express and Handlebars. Hand-drawn weather graphics",
+              url: "https://www.quick-weather.com",
+            },
+          ]}
+        />
         <p className="section-main-p">
           Shortly after that I was having a free-talk class with one of my
           students and thought it would be a great idea to teach her Scrabble.
@@ -176,6 +165,20 @@ export default function Story() {
           nothing but the classroom platform to play Scrabble. It would be super
           useful in real classrooms that have a blackboard too!
         </p>
+        <p>
+          But there are still so many things I want to make and I definitely
+          need server-side scripting to implement fully functioning
+          applications. So I have embarked on a journey in to Node JS, the most
+          recent accomplishment of which is{" "}
+          <a
+            href="https://www.quick-weather.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            weather app that uses my own api server and integrates with two REST
+            APIs for geocoding and weather reports.
+          </a>
+        </p>
       </Section>
       <Section title={"Playful"} color={"#FEFFBD"}>
         <p className="section-main-p">
@@ -191,7 +194,8 @@ export default function Story() {
             creating a product landing page
           </a>
           . So I went all-in making illustrations and writing detailed
-          descriptions of the company and their products.
+          descriptions of the company and their products. The graphics are all
+          (digitally) hand-drawn and I couldn't be prouder of the results.
         </p>
         <Cards
           data={[
@@ -240,7 +244,7 @@ export default function Story() {
           to offer a unique perspective with{" "}
           <b>unlimited energy and patience</b>.
         </p>
-      </Section>  
-        </>
-    )
+      </Section>
+    </>
+  );
 }
